@@ -3,125 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arsip Kenangan Kita</title>
+  <title>Kenangan Cinta Kita</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body data-theme="light">
 
-<!-- =====================
-     🔐 PASSWORD PAGE
-===================== -->
-<section id="password-page" class="page page-password">
-  <div class="password-card">
-    <h1 class="title">Kenangan Kita</h1>
-    <p class="subtitle">Halaman ini hanya untuk kita berdua</p>
+  <!-- ================= PASSWORD PAGE ================= -->
+  <section id="password-page" class="page password-page">
+    <div class="password-box">
+      <h1>🔐 Arsip Kenangan</h1>
+      <p>Masukkan password rahasia kita</p>
 
-    <input
-      type="password"
-      id="passwordInput"
-      placeholder="Password Rahasia"
-      autocomplete="off"
-    />
+      <input
+        type="password"
+        id="passwordInput"
+        placeholder="Password..."
+        autocomplete="off"
+      />
+      <button id="passwordSubmit">Masuk</button>
+    </div>
+  </section>
 
-    <button id="passwordSubmit">Masuk</button>
+  <!-- ================= APP UTAMA ================= -->
+  <div id="app" hidden>
 
-    <!-- Stiker Dudu & Bubu (render via JS) -->
-    <div id="password-stickers"></div>
-  </div>
-</section>
+    <!-- ================= HEADER ================= -->
+    <header class="main-header">
+      <h1>💖 Kenangan Cinta Kita</h1>
 
-<!-- =====================
-     🌸 MAIN APP
-===================== -->
-<main id="app" hidden>
-
-  <!-- =====================
-       HEADER / TOP BAR
-  ===================== -->
-  <header class="topbar">
-    <h2 class="logo">Arsip Kenangan</h2>
-
-    <div class="topbar-actions">
-      <button id="themeToggle" aria-label="Toggle Theme">
-        🌙
+      <button id="themeToggle" class="theme-toggle">
+        🌙 / ☀️
       </button>
-    </div>
-  </header>
+    </header>
 
-  <!-- =====================
-       LANDING / INTRO
-  ===================== -->
-  <section id="landing" class="page page-landing">
-    <h1>Perjalanan Cinta Kita</h1>
-    <p>
-      Dari tahun ke tahun, dari game ke dunia nyata,
-      semua tersimpan di sini.
-    </p>
+    <!-- ================= LANDING ================= -->
+    <section id="landing" class="page landing">
+      <h2>Perjalanan Cinta Dari Tahun ke Tahun</h2>
+      <p>Scroll perlahan, rasakan setiap momennya 🤍</p>
 
-    <button id="startJourney">
-      Mulai Perjalanan
-    </button>
-  </section>
+      <button id="startJourney" class="start-btn">
+        Mulai Perjalanan
+      </button>
+    </section>
 
-  <!-- =====================
-       YEAR NAVIGATION
-  ===================== -->
-  <nav id="year-navigation" aria-label="Navigasi Tahun">
-    <!-- Tombol tahun di-generate JS -->
-  </nav>
+    <!-- ================= YEAR NAVIGATION ================= -->
+    <nav id="year-navigation" class="year-nav">
+      <!-- tombol tahun DIISI JS -->
+    </nav>
 
-  <!-- =====================
-       YEARS CONTAINER
-  ===================== -->
-  <section id="years-container">
-    <!-- 
-      Setiap tahun dirender JS:
-      - Story
-      - Sticker
-      - Free Fire
-      - Roblox
-      - Dunia Asli
-    -->
-  </section>
+    <!-- ================= YEARS CONTAINER ================= -->
+    <main id="years-container">
+      <!-- section tahun DIISI JS -->
+    </main>
 
-  <!-- =====================
-       LOVE LETTER
-  ===================== -->
- <section class="love-letter">
-  <p class="typing-text">
-    Terima kasih sudah hadir di hidupku.
-    Dari dunia game sampai dunia nyata,
-    kamu selalu jadi rumah yang sama.
-  </p>
-</section>
+    <!-- ================= LOVE LETTER ================= -->
+    <section class="page love-letter">
+      <h2>💌 Surat Cinta</h2>
+      <p id="love-letter-text" class="typing-text">
+        Terima kasih sudah hadir di hidupku. Dari game, tawa,
+        hingga dunia nyata — semuanya berarti.
+      </p>
+    </section>
 
+    <!-- ================= AUDIO PLAYER ================= -->
+    <footer class="audio-footer">
+      <div class="audio-info">
+        <span id="audio-title">Belum ada audio diputar</span>
+      </div>
 
-  <!-- =====================
-       CLOSING
-  ===================== -->
-  <section id="closing" class="page page-closing">
-    <p id="closing-text">
-      <!-- Pesan janji via JS -->
-    </p>
-  </section>
+      <audio id="audioPlayer" controls preload="none"></audio>
+    </footer>
 
-  <!-- =====================
-       MUSIC PLAYER
-  ===================== -->
-  <footer id="music-player">
-    <audio id="audioPlayer" controls></audio>
-    <div id="audio-info">
-      <span id="audio-title">Belum ada lagu</span>
-    </div>
-  </footer>
+  </div>
 
-</main>
-
-<!-- =====================
-     JAVASCRIPT
-===================== -->
-<script src="script.js"></script>
+  <!-- ================= SCRIPT ================= -->
+  <script src="script.js"></script>
 </body>
 </html>
+
