@@ -1,359 +1,270 @@
-/* =========================
+/* =================================================
    🌸 ROOT & THEME
-========================= */
+================================================= */
 :root {
-  --bg-main: #fffafc;
-  --bg-soft: #fff0f6;
-  --text-main: #2e2e2e;
-  --text-soft: #6b6b6b;
-
-  --accent-main: #ffd6e8;
-  --accent-soft: #f3c4fb;
-
-  --radius-lg: 22px;
-  --radius-md: 16px;
-
-  --transition-slow: 0.6s ease;
-  --transition-fast: 0.3s ease;
+  --bg-light: #fff7fb;
+  --bg-dark: #1c1b22;
+  --text-light: #222;
+  --text-dark: #eee;
+  --accent: #ff9ecf;
+  --card: rgba(255,255,255,0.85);
 }
 
-[data-theme="dark"] {
-  --bg-main: #0f0f14;
-  --bg-soft: #1a1a22;
-  --text-main: #f1f1f1;
-  --text-soft: #b8b8c2;
-
-  --accent-main: #a18cd1;
-  --accent-soft: #fbc2eb;
+body[data-theme="light"] {
+  background: var(--bg-light);
+  color: var(--text-light);
 }
 
-/* =========================
-   🔧 RESET & BASE
-========================= */
-*,
-*::before,
-*::after {
+body[data-theme="dark"] {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+* {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--bg-main);
-  color: var(--text-main);
   font-family: "Segoe UI", system-ui, sans-serif;
-  transition:
-    background var(--transition-slow),
-    color var(--transition-slow);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-img,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-/* =========================
-   📄 PAGE GENERIC
-========================= */
-.page {
-  min-height: 100vh;
-  padding: 3rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* =========================
+/* =================================================
    🔐 PASSWORD PAGE
-========================= */
-.page-password {
-  background: linear-gradient(
-    135deg,
-    var(--accent-main),
-    var(--accent-soft)
-  );
-  align-items: center;
+================================================= */
+.password-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffd6e8, #cdb4db);
 }
 
-.password-card {
-  background: var(--bg-main);
-  padding: 2.5rem 2rem;
-  border-radius: var(--radius-lg);
-  max-width: 420px;
-  width: 100%;
+.password-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
   text-align: center;
-  animation: fadeIn 1.5s ease;
+  max-width: 320px;
+  width: 90%;
 }
 
-.password-card .title {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-.password-card .subtitle {
-  margin: 0.5rem 0 1.5rem;
-  color: var(--text-soft);
-}
-
-.password-card input {
+.password-box input {
   width: 100%;
-  padding: 0.9rem 1rem;
-  border-radius: var(--radius-md);
-  border: none;
-  background: var(--bg-soft);
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  padding: 0.7rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
-.password-card button {
+.password-box button {
   width: 100%;
-  padding: 0.9rem;
+  padding: 0.7rem;
   border: none;
-  border-radius: var(--radius-md);
-  background: var(--accent-main);
-  font-size: 1rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
   cursor: pointer;
-  transition: transform var(--transition-fast);
 }
 
-.password-card button:active {
-  transform: scale(0.97);
-}
-
-/* =========================
-   🔝 TOPBAR
-========================= */
-.topbar {
+/* =================================================
+   🧭 HEADER
+================================================= */
+.main-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
+  z-index: 50;
+  background: var(--card);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.2rem;
+  padding: 0.8rem 1rem;
 }
 
-[data-theme="dark"] .topbar {
-  background: rgba(15, 15, 20, 0.7);
-}
-
-.logo {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-#themeToggle {
-  background: none;
+.theme-toggle {
   border: none;
+  background: none;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
-/* =========================
-   🌸 LANDING
-========================= */
-.page-landing {
+/* =================================================
+   🌅 LANDING
+================================================= */
+.landing {
   text-align: center;
+  padding: 4rem 1rem 3rem;
 }
 
-.page-landing h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.page-landing p {
-  color: var(--text-soft);
-  max-width: 520px;
-  margin: 0 auto 2rem;
-}
-
-.page-landing button {
-  padding: 0.9rem 1.8rem;
+.start-btn {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 999px;
   border: none;
-  background: var(--accent-main);
+  background: var(--accent);
+  color: white;
   font-size: 1rem;
   cursor: pointer;
 }
 
-/* =========================
+/* =================================================
    🗓️ YEAR NAVIGATION
-========================= */
-#year-navigation {
+================================================= */
+.year-nav {
   display: flex;
-  gap: 0.8rem;
-  padding: 1rem;
+  gap: 0.5rem;
   overflow-x: auto;
-}
-
-#year-navigation::-webkit-scrollbar {
-  display: none;
+  padding: 0.8rem 1rem;
+  position: sticky;
+  top: 60px;
+  background: var(--card);
+  z-index: 40;
 }
 
 .year-button {
-  padding: 0.5rem 1.1rem;
+  border: none;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
-  background: var(--bg-soft);
-  font-size: 0.95rem;
-  white-space: nowrap;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  background: #eee;
 }
 
 .year-button.active {
-  background: var(--accent-main);
+  background: var(--accent);
+  color: white;
 }
 
-/* =========================
-   📦 YEAR SECTION
-========================= */
+/* =================================================
+   📆 YEAR SECTION
+================================================= */
 .year-section {
-  padding: 3rem 1.5rem;
+  padding: 3rem 1rem;
+  scroll-margin-top: 140px;
 }
 
 .year-section h2 {
-  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .year-story {
-  color: var(--text-soft);
-  max-width: 620px;
-  margin-bottom: 2rem;
-  animation: fadeUp 1.2s ease both;
+  text-align: center;
+  max-width: 600px;
+  margin: 0.5rem auto 2rem;
+  opacity: 0.85;
 }
 
-/* =========================
-   🎮 CATEGORY
-========================= */
+/* =================================================
+   🌍 CATEGORY
+================================================= */
 .category {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .category h3 {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.3rem;
 }
 
-/* =========================
+.world-label {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* =================================================
    📸 SLIDER
-========================= */
+================================================= */
 .slider {
   display: flex;
-  gap: 1rem;
+  gap: 0.7rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
+  padding: 0.7rem 0;
+  scroll-snap-type: x mandatory;
 }
 
-.slider::-webkit-scrollbar {
-  height: 6px;
-}
-
-.slider::-webkit-scrollbar-thumb {
-  background: var(--accent-soft);
-  border-radius: 10px;
+.slider.dragging {
+  cursor: grabbing;
 }
 
 .slider img,
 .slider video {
   width: 220px;
-  border-radius: var(--radius-md);
-  background: var(--bg-soft);
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #ddd;
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
-/* =========================
+/* =================================================
+   🎬 VIDEO CINEMATIC
+================================================= */
+.video-cinematic {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* =================================================
+   🎵 AUDIO
+================================================= */
+.audio-list {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.audio-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  cursor: pointer;
+  background: #eee;
+}
+
+/* =================================================
    💌 LOVE LETTER
-========================= */
-.page-letter {
+================================================= */
+.love-letter {
+  padding: 3rem 1rem;
   text-align: center;
 }
 
-#love-letter-text {
-  max-width: 650px;
-  margin: 1.5rem auto 0;
-  line-height: 1.8;
-  color: var(--text-soft);
-}
-
-/* =========================
-   🌙 CLOSING
-========================= */
-.page-closing {
-  text-align: center;
+.typing-text {
+  max-width: 600px;
+  margin: auto;
   font-style: italic;
-  color: var(--text-soft);
 }
 
-/* =========================
-   🎵 MUSIC PLAYER
-========================= */
-#music-player {
+/* =================================================
+   🎧 AUDIO FOOTER
+================================================= */
+.audio-footer {
   position: sticky;
   bottom: 0;
-  background: var(--bg-main);
-  border-top: 1px solid rgba(0,0,0,0.05);
-  padding: 0.7rem 1rem;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
 }
 
-#audio-info {
+.audio-info {
   font-size: 0.85rem;
-  margin-top: 0.3rem;
-  color: var(--text-soft);
+  margin-bottom: 0.3rem;
 }
 
-/* =========================
-   🧸 STICKER (GLOBAL)
-========================= */
-.sticker {
-  position: absolute;
-  width: 80px;
-  animation: float 6s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* =========================
-   ✨ ANIMATIONS
-========================= */
-@keyframes fadeIn {
-  from { opacity: 0 }
-  to { opacity: 1 }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-}
-
-/* =========================
+/* =================================================
    📱 RESPONSIVE
-========================= */
+================================================= */
 @media (min-width: 768px) {
-  .page {
-    padding: 4rem 3rem;
-  }
-
   .slider img,
   .slider video {
-    width: 260px;
+    width: 280px;
+    height: 180px;
+  }
+
+  .year-section {
+    padding: 4rem 2rem;
   }
 }
 
