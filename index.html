@@ -3,81 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenangan Cinta Kita</title>
+  <title>Our Memories</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body data-theme="light">
+<body class="day-mode">
 
   <!-- ================= PASSWORD PAGE ================= -->
-  <section id="password-page" class="page password-page">
+  <section id="password-page" class="fullscreen">
     <div class="password-box">
-      <h1>🔐 Arsip Kenangan</h1>
-      <p>Masukkan password rahasia kita</p>
-
+      <h1>🤍 Our Secret Memories</h1>
       <input
         type="password"
-        id="passwordInput"
-        placeholder="Password..."
-        autocomplete="off"
+        id="password-input"
+        placeholder="Masukkan password"
       />
-      <button id="passwordSubmit">Masuk</button>
+      <button id="password-btn">Masuk</button>
+      <p id="password-error"></p>
     </div>
   </section>
 
-  <!-- ================= APP UTAMA ================= -->
-  <div id="app" hidden>
+  <!-- ================= MAIN WEBSITE ================= -->
+  <main id="main-site" class="hidden">
 
-    <!-- ================= HEADER ================= -->
+    <!-- ===== HEADER ===== -->
     <header class="main-header">
-      <h1>💖 Kenangan Cinta Kita</h1>
+      <h2>Our Love Story</h2>
 
-      <button id="themeToggle" class="theme-toggle">
-        🌙 / ☀️
-      </button>
+      <div class="header-controls">
+        <button id="toggle-theme">🌙 / ☀️</button>
+        <button id="toggle-music">🎵</button>
+      </div>
     </header>
 
-    <!-- ================= LANDING ================= -->
-    <section id="landing" class="page landing">
-      <h2>Perjalanan Cinta Dari Tahun ke Tahun</h2>
-      <p>Scroll perlahan, rasakan setiap momennya 🤍</p>
-
-      <button id="startJourney" class="start-btn">
-        Mulai Perjalanan
-      </button>
+    <!-- ===== HERO / LANDING ===== -->
+    <section class="hero">
+      <h1>Untuk Kita, Selamanya</h1>
+      <p>Setiap momen adalah kenangan yang tak tergantikan</p>
     </section>
 
-    <!-- ================= YEAR NAVIGATION ================= -->
-    <nav id="year-navigation" class="year-nav">
-      <!-- tombol tahun DIISI JS -->
-    </nav>
-
-    <!-- ================= YEARS CONTAINER ================= -->
-    <main id="years-container">
-      <!-- section tahun DIISI JS -->
-    </main>
-
-    <!-- ================= LOVE LETTER ================= -->
-    <section class="page love-letter">
-      <h2>💌 Surat Cinta</h2>
-      <p id="love-letter-text" class="typing-text">
-        Terima kasih sudah hadir di hidupku. Dari game, tawa,
-        hingga dunia nyata — semuanya berarti.
-      </p>
+    <!-- ===== YEAR NAVIGATION ===== -->
+    <section class="year-nav">
+      <button id="prev-year">‹</button>
+      <span id="current-year">2024</span>
+      <button id="next-year">›</button>
     </section>
 
-    <!-- ================= AUDIO PLAYER ================= -->
-    <footer class="audio-footer">
-      <div class="audio-info">
-        <span id="audio-title">Belum ada audio diputar</span>
+    <!-- ===== CONTENT PER YEAR ===== -->
+    <section id="year-content" class="year-content">
+      <!-- JS akan render konten di sini -->
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery">
+      <h3>Gallery Kenangan</h3>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Foto / video -->
       </div>
+    </section>
 
-      <audio id="audioPlayer" controls preload="none"></audio>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p>🤍 Dibuat dengan cinta</p>
     </footer>
 
-  </div>
+  </main>
 
-  <!-- ================= SCRIPT ================= -->
+  <!-- ================= AUDIO ================= -->
+  <audio id="bg-music" loop>
+    <source src="audio/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
