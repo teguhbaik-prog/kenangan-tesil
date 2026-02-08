@@ -670,4 +670,98 @@ typingElements.forEach(el => {
 
   typingObserver.observe(el);
 });
+/* =================================================
+   🛠️ STEP 9 — OPTIMASI FINAL & ERROR GUARD
+================================================= */
+
+/* ---------- 1. SAFE QUERY HELPER ---------- */
+function $(selector, scope = document) {
+  try {
+    return scope.querySelector(selector);
+  } catch (e) {
+    console.warn("Selector error:", selector);
+    return null;
+  }
+}
+
+function $all(selector, scope = document) {
+  try {
+    return scope.querySelectorAll(selector);
+  } catch (e) {
+    console.warn("Selector error:", selector);
+    return [];
+  }
+}
+
+/* ---------- 2. PREVENT MULTIPLE OBSERVERS ---------- */
+const activeObservers = new WeakSet();
+
+function safeObserve(observer, element) {
+  if (!activeObservers.has(element)) {
+    observer.observe(element);
+    activeObservers.add(element);
+  }
+}
+
+/* ---------- 3. PAUSE VIDEO WHEN OUT OF VIEW ---------- */
+const videoObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (!video) return;
+
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll("video").forEach(video => {
+  videoObserver.observe(video);
+});
+
+/* ---------- 4. REDUCE MOTION (USER ACCESSIBILITY) ---------- */
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (prefersReducedMotion) {
+  document.documentElement.classList.add("reduce-motion");
+}
+
+/* ---------- 5. THROTTLE SCROLL EVENT (JIKA ADA) ---------- */
+function throttle(fn, delay = 100) {
+  let last = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - last >= delay) {
+      last = now;
+      fn.apply(this, args);
+    }
+  };
+}
+
+/* ---------- 6. IMAGE LAZY SAFETY ---------- */
+document.querySelectorAll("img").forEach(img => {
+  if (!img.hasAttribute("loading")) {
+    img.setAttribute("loading", "lazy");
+  }
+
+  img.onerror = () => {
+    img.style.display = "none";
+  };
+});
+
+/* ---------- 7. GLOBAL ERROR CATCH ---------- */
+window.addEventListener("error", e => {
+  console.warn("JS Error caught:", e.message);
+});
+
+/* ---------- 8. FINAL READY FLAG ---------- */
+document.documentElement.classList.add("site-ready");
+console.log("💖 Website Kenangan: READY");
 
