@@ -1,0 +1,364 @@
+/* =========================
+   🌸 ROOT & THEME
+========================= */
+:root {
+  --bg-main: #fffafc;
+  --bg-soft: #fff0f6;
+  --text-main: #2e2e2e;
+  --text-soft: #6b6b6b;
+
+  --accent-main: #ffd6e8;
+  --accent-soft: #f3c4fb;
+
+  --radius-lg: 22px;
+  --radius-md: 16px;
+
+  --transition-slow: 0.6s ease;
+  --transition-fast: 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-main: #0f0f14;
+  --bg-soft: #1a1a22;
+  --text-main: #f1f1f1;
+  --text-soft: #b8b8c2;
+
+  --accent-main: #a18cd1;
+  --accent-soft: #fbc2eb;
+}
+
+/* =========================
+   🔧 RESET & BASE
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  transition:
+    background var(--transition-slow),
+    color var(--transition-slow);
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   📄 PAGE GENERIC
+========================= */
+.page {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* =========================
+   🔐 PASSWORD PAGE
+========================= */
+.page-password {
+  background: linear-gradient(
+    135deg,
+    var(--accent-main),
+    var(--accent-soft)
+  );
+  align-items: center;
+}
+
+.password-card {
+  background: var(--bg-main);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.password-card .title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.password-card .subtitle {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--text-soft);
+}
+
+.password-card input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--bg-soft);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.password-card button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--accent-main);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.password-card button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   🔝 TOPBAR
+========================= */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+}
+
+[data-theme="dark"] .topbar {
+  background: rgba(15, 15, 20, 0.7);
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* =========================
+   🌸 LANDING
+========================= */
+.page-landing {
+  text-align: center;
+}
+
+.page-landing h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.page-landing p {
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.page-landing button {
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent-main);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* =========================
+   🗓️ YEAR NAVIGATION
+========================= */
+#year-navigation {
+  display: flex;
+  gap: 0.8rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+#year-navigation::-webkit-scrollbar {
+  display: none;
+}
+
+.year-button {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.year-button.active {
+  background: var(--accent-main);
+}
+
+/* =========================
+   📦 YEAR SECTION
+========================= */
+.year-section {
+  padding: 3rem 1.5rem;
+}
+
+.year-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.year-story {
+  color: var(--text-soft);
+  max-width: 620px;
+  margin-bottom: 2rem;
+  animation: fadeUp 1.2s ease both;
+}
+
+/* =========================
+   🎮 CATEGORY
+========================= */
+.category {
+  margin-bottom: 3rem;
+}
+
+.category h3 {
+  margin-bottom: 0.8rem;
+}
+
+/* =========================
+   📸 SLIDER
+========================= */
+.slider {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.slider::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background: var(--accent-soft);
+  border-radius: 10px;
+}
+
+.slider img,
+.slider video {
+  width: 220px;
+  border-radius: var(--radius-md);
+  background: var(--bg-soft);
+}
+
+/* =========================
+   💌 LOVE LETTER
+========================= */
+.page-letter {
+  text-align: center;
+}
+
+#love-letter-text {
+  max-width: 650px;
+  margin: 1.5rem auto 0;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* =========================
+   🌙 CLOSING
+========================= */
+.page-closing {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+/* =========================
+   🎵 MUSIC PLAYER
+========================= */
+#music-player {
+  position: sticky;
+  bottom: 0;
+  background: var(--bg-main);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding: 0.7rem 1rem;
+}
+
+#audio-info {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  color: var(--text-soft);
+}
+
+/* =========================
+   🧸 STICKER (GLOBAL)
+========================= */
+.sticker {
+  position: absolute;
+  width: 80px;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* =========================
+   ✨ ANIMATIONS
+========================= */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* =========================
+   📱 RESPONSIVE
+========================= */
+@media (min-width: 768px) {
+  .page {
+    padding: 4rem 3rem;
+  }
+
+  .slider img,
+  .slider video {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticker {
+    display: none;
+  }
+}
